@@ -8,6 +8,8 @@ public class SwitchToggle : MonoBehaviour
     [SerializeField] RectTransform uirect;
     Toggle toggle;
     Vector2 hP;
+    static bool state = true;
+
 
     void Awake()
     {
@@ -15,19 +17,25 @@ public class SwitchToggle : MonoBehaviour
         hP = uirect.anchoredPosition;
         toggle.onValueChanged.AddListener(OnSwitch);
 
+        toggle.isOn = state;
+
         if (toggle.isOn)
             OnSwitch(true);
+        
     }
-
     void OnSwitch(bool on)
     {
         if (on) 
         {
-            uirect.anchoredPosition = hP * -1; 
+            uirect.anchoredPosition = hP;
+            AudioListener.volume = 1;
+            state = true;
         }
         else 
         {
-            uirect.anchoredPosition = hP; 
+            uirect.anchoredPosition = hP * -1;
+            AudioListener.volume = 0;
+            state = false;
         }
     }
 

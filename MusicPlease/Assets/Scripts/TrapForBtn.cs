@@ -9,8 +9,7 @@ public class TrapForBtn : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Score", 0);
-        plane.transform.localScale = new Vector3(1f,1f,3.2f);
-        space.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+
     }
 
 

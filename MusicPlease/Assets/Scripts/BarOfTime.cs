@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BarOfTime : MonoBehaviour
 {
     [SerializeField] Image bar;
     [SerializeField] float fill;
     [SerializeField] AudioSource music;
-    [SerializeField] GameObject star,trap;
-    float l, nx;
+    [SerializeField] GameObject star;
+    float l;
+
+    [SerializeField] static int scr;
 
     void Start()
     {
@@ -24,10 +27,16 @@ public class BarOfTime : MonoBehaviour
     {
         if (fill <= 1)
         {
-            star.transform.position += new Vector3 (Time.deltaTime/music.clip.length * l,0);
+            star.transform.position += new Vector3(Time.deltaTime / music.clip.length * l, 0);
             fill += Time.deltaTime / music.clip.length;
             bar.fillAmount = fill;
 
+        }
+        else
+        {
+            scr = PlayerPrefs.GetInt("Score");
+            SceneManager.LoadScene("End");
+            //SetScore.Start();
         }
     }
 }

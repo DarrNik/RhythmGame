@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
@@ -9,6 +10,6 @@ public class Score : MonoBehaviour
     
     void Update()
     {
-        GetComponent<Text>().text = PlayerPrefs.GetInt(name) + "";
+        GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetInt(name) + "";
     }
 }
