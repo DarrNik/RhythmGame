@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Arrows
+    uniqueID: 1931924365
+    locked: 0
+  - name: Buttons
+    uniqueID: 2791113869
+    locked: 0
